@@ -93,8 +93,8 @@ jobs:
         cd ${{ github.workspace }}/V2rayNG
         echo "sdk.dir=${ANDROID_HOME}" > local.properties
         chmod 755 gradlew
-        keytool -genkey -v -keystore app/dummy.jks -alias dummy -storepass password -keypass password -keyalg RSA -validity 10000 -dname "CN=Dummy"
-        ./gradlew assembleDebug -Pandroid.injected.signing.store.file=dummy.jks -Pandroid.injected.signing.store.password=password -Pandroid.injected.signing.key.alias=dummy -Pandroid.injected.signing.key.password=password
+        keytool -genkey -v -keystore ${{ github.workspace }}/dummy.jks -alias dummy -storepass password -keypass password -keyalg RSA -validity 10000 -dname "CN=Dummy"
+        ./gradlew assembleDebug -Pandroid.injected.signing.store.file=${{ github.workspace }}/dummy.jks -Pandroid.injected.signing.store.password=password -Pandroid.injected.signing.key.alias=dummy -Pandroid.injected.signing.key.password=password
     
     - name: Upload arm64-v8a APK
       uses: actions/upload-artifact@v7
