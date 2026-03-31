@@ -20,6 +20,11 @@ jobs:
       with:
         submodules: 'recursive'
         fetch-depth: '0'
+          
+    - name: Inject Custom Prism Engine
+      run: |
+        rm -rf AndroidLibXrayLite
+        git clone https://github.com/YOUR_USERNAME/AndroidLibXrayLite.git
 
     - name: Setup Android SDK
       uses: android-actions/setup-android@v4.0.0
