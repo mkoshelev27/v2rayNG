@@ -23,9 +23,8 @@ jobs:
           
     - name: Inject Custom Prism Engine
       run: |
-        git rm -rf AndroidLibXrayLite || true
         rm -rf AndroidLibXrayLite
-        git clone https://github.com/mkoshelev27/AndroidLibXrayLite.git
+        git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/mkoshelev27/AndroidLibXrayLite.git
 
     - name: Setup Android SDK
       uses: android-actions/setup-android@v4.0.0
